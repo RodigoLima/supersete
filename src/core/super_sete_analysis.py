@@ -3313,9 +3313,9 @@ class SuperSeteAnalyzer:
             
             # Top 3 números
             report.append("  Top 3 números:")
-            for num, freq in data['frequencia_percentual'].items():
-                if freq in sorted(data['frequencia_percentual'].values(), reverse=True)[:3]:
-                    report.append(f"    {num}: {freq:.1f}%")
+            top_3_freqs = sorted(data['frequencia_percentual'].items(), key=lambda x: x[1], reverse=True)[:3]
+            for num, freq in top_3_freqs:
+                report.append(f"    {num}: {freq:.1f}%")
         
         # Números quentes e frios
         report.append("\n🌡️ NÚMEROS QUENTES E FRIOS:")
